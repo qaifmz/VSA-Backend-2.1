@@ -1,4 +1,4 @@
-name: Build VSA-Backend-2.1
+name: Build and Publish VSA-Backend-2.1
 
 on:
   [push]
