@@ -24,18 +24,11 @@ jobs:
     - name: Build Solution
       run: msbuild VaaApi/VaaApi.sln
 
-    #- name: Azure Webapp Deploy
-    #  uses: azure/webapps-deploy@v2
-    #  with: 
-    #    app-name: VaaApi
-    #    publish-profile: ${{ secrets.azureWebAppPublishProfile }}
-  
-    - name: Deploy to Web Hosting
-      uses: SamKirkland/FTP-Deploy-Action@master
-      with:
-        ftp-server: virtual-advisor.com
-        ftp-username: ${{ secrets.ftp_username }}
-        ftp-password: ${{ secrets.ftp_password }}
+    - name: Azure Webapp Deploy
+      uses: azure/webapps-deploy@v2
+      with: 
+        app-name: VaaApi
+        publish-profile: ${{ secrets.azureWebAppPublishProfile }}
 
     - name: Upload Package
       uses: actions/upload-artifact@v1
