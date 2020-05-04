@@ -30,6 +30,12 @@ jobs:
         app-name: VaaApi
         publish-profile: ${{ secrets.azureWebAppPublishProfile }}
 
+    - name: Deploy to IIS Website
+      uses: cschleiden/webdeploy-action@v1
+      with:
+        webSiteName: virtual-advisor.com
+        package: ${{ format('{0}\dist', runner.workspace) }}
+
     - name: Upload Package
       uses: actions/upload-artifact@v1
       with:
